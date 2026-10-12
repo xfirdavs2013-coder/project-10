@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="uz" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangaShift — Zamonaviy O'zbek Manga Platformasi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+              900: '#881337',
+            },
+            darkbg: '#0f0f13',
+            darkcard: '#181820',
+            darkborder: '#2a2a36'
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass { background: rgba(24, 24, 32, 0.7); backdrop-filter: blur(12px); }
+  </style>
+</head>
+<body class="bg-darkbg text-slate-100 min-h-screen selection:bg-brand-500 selection:text-white">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-darkborder/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="scrollToTop()">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-rose-400 flex items-center justify-center shadow-lg shadow-brand-500/30">
+          <i class="fa-solid font-bold text-white text-xl">M</i>
+        </div>
+        <span class="text-2xl font-extrabold tracking-tight">Manga<span class="text-brand-500">Shift</span></span>
+      </div>
+
+      <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+        <a href="#problem" class="hover:text-brand-500 transition-colors">Muammolar</a>
+        <a href="#solution" class="hover:text-brand-500 transition-colors">Yechim</a>
+        <a href="#stats" class="hover:text-brand-500 transition-colors">Isbotlar</a>
+        <a href="#mangas" class="hover:text-brand-500 transition-colors">Mangalar</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button onclick="openDemoModal()" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2.5 rounded-xl font-bold shadow-lg shadow-brand-600/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2">
+          <i class="fa-solid fa-play text-xs"></i> Demo Reader
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-32 pb-20 md:pt-40 md:pb-28 relative overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-96 h-96 bg-brand-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-40 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-bold tracking-wide">
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+            O'ZBEKISTONDAGI ILK EKOTIZIM
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+            Manga olamini <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 to-rose-400">reklamalarsiz</span> va yuqori sifatda o'qing
+          </h1>
+
+          <p class="text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+            Kitobxonlar uchun tezkor reader va tarjimonlar uchun adolatli daromad manbai. Barchasi bir joyda yig'ilgan zamonaviy manga platformasi.
+          </p>
+
+          <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <button onclick="openDemoModal()" class="bg-brand-600 hover:bg-brand-500 text-white text-base font-bold px-8 py-4 rounded-xl shadow-xl shadow-brand-600/25 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-3">
+              <span>Mutolaani boshlash</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <a href="#solution" class="bg-darkcard hover:bg-slate-800 border border-darkborder text-slate-200 text-base font-bold px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+              <span>Batafsil bilish</span>
+            </a>
+          </div>
+
+          <div class="pt-6 flex items-center justify-center lg:justify-start gap-8 text-xs text-slate-400 font-medium border-t border-darkborder/60">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-bolt text-amber-400"></i>
+              <span>Tezkor yuklanish</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-ban text-rose-400"></i>
+              <span>0% Reklama</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-coins text-emerald-400"></i>
+              <span>Tarjimonlarni qo'llash</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md bg-darkcard border border-darkborder p-3 rounded-2xl shadow-2xl">
+            <div class="relative rounded-xl overflow-hidden group">
+              <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?auto=format&fit=crop&w=800&q=80" alt="Manga Preview" class="w-full h-[450px] object-cover rounded-lg group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-80"></div>
+              
+              <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass border border-white/10">
+                <div class="flex items-center justify-between mb-2">
+                  <span class="bg-brand-500 text-white text-[10px] font-black tracking-wider px-2 py-0.5 rounded uppercase">TOP-1 TREND</span>
+                  <span class="text-xs text-slate-300 font-semibold"><i class="fa-solid fa-star text-amber-400 mr-1"></i>4.9 (1.2k)</span>
+                </div>
+                <h3 class="text-white font-bold text-lg">Solo Leveling: O'zbekcha</h3>
+                <p class="text-slate-400 text-xs mt-1">Soylardan iborat imperiya qaytmoqda...</p>
+                <button onclick="openDemoModal()" class="mt-3 w-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold py-2 rounded-lg backdrop-blur-md border border-white/10 transition-colors">
+                  Sinab ko'rish (Demo Reader)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section id="problem" class="py-20 bg-darkcard/50 border-y border-darkborder/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-rose-500 text-xs font-bold tracking-widest uppercase">Mavjud Muammolar</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Nega hozirgi manga saytlaridan odamlar bezor?</h2>
+        <p class="text-slate-400 text-sm mt-3">Kitobxonlar ham, manga tarjima qiluvchi jamoalar ham birdek qiyinchiliklarga duch kelishmoqda.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Kitobxonlar muammosi -->
+        <div class="bg-darkcard p-8 rounded-2xl border border-darkborder relative overflow-hidden">
+          <div class="w-12 h-12 bg-rose-500/10 rounded-xl flex items-center justify-center text-rose-500 font-bold text-xl mb-6">
+            <i class="fa-solid fa-user-xmark"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">Kitobxonlar duch keladigan qiynoqlar</h3>
+          <ul class="space-y-4 text-slate-300 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+              <span>Har bir bosishda chiquvchi zerikarli va xunuk reklamalar/pop-uplar.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+              <span>Sahifalarning juda sekin yuklanishi hamda mobil qurilmalarga moslashmagani.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-rose-500 mt-1"></i>
+              <span>Chala qolgan tarjimalar va sifatsiz shriftdan foydalanilgan sahifalar.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Tarjimonlar muammosi -->
+        <div class="bg-darkcard p-8 rounded-2xl border border-darkborder relative overflow-hidden">
+          <div class="w-12 h-12 bg-amber-500/10 rounded-xl flex items-center justify-center text-amber-500 font-bold text-xl mb-6">
+            <i class="fa-solid fa-language"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-4">Tarjimon va Scanlation jamoalar muammosi</h3>
+          <ul class="space-y-4 text-slate-300 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-amber-500 mt-1"></i>
+              <span>Soatlab qilingan og'ir mehnat (klip, taypsett, tarjima) umuman qadrlanmaydi.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-amber-500 mt-1"></i>
+              <span>Soha orqali halol daromad olish hamda donat yig'ish tizimining yo'qligi.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-circle-xmark text-amber-500 mt-1"></i>
+              <span>O'quvchilar bilan to'g'ridan-to'g me'yoriy aloqa va fikr-mulohaza yo'qligi.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section id="solution" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-500 text-xs font-bold tracking-widest uppercase">Bizning Yechim</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">MangaShift Barchasini O'zgartiradi</h2>
+        <p class="text-slate-400 text-sm mt-3">Zamonaviy texnologiyalar yordamida ikkala taraf uchun ham ideal ekotizim yaratdik.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-darkcard p-6 rounded-2xl border border-darkborder hover:border-brand-500/50 transition-all">
+          <div class="w-12 h-12 bg-brand-500/10 rounded-xl flex items-center justify-center text-brand-500 text-xl font-bold mb-5">
+            <i class="fa-solid fa-gauge-high"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Ultra-Tezkor Reader</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Cloudflare CDN va zamonaviy siqish texnologiyasi orqali mangu rasmlar atigi 0.8 soniyada yuklanadi.</p>
+        </div>
+
+        <div class="bg-darkcard p-6 rounded-2xl border border-darkborder hover:border-brand-500/50 transition-all">
+          <div class="w-12 h-12 bg-emerald-500/10 rounded-xl flex items-center justify-center text-emerald-400 text-xl font-bold mb-5">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Tarjimonlarni Qo'llash</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Kitobxonlar eksklyuziv boblarni sotib olishi yoki sevimli jamoasiga to'g'ridan-to'g'ri donat qilishi mumkin.</p>
+        </div>
+
+        <div class="bg-darkcard p-6 rounded-2xl border border-darkborder hover:border-brand-500/50 transition-all">
+          <div class="w-12 h-12 bg-purple-500/10 rounded-xl flex items-center justify-center text-purple-400 text-xl font-bold mb-5">
+            <i class="fa-solid fa-comments"></i>
+          </div>
+          <h3 class="text-lg font-bold text-white mb-2">Sahifama-sahifa Muhokama</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Har bir manga sahifasiga alohida reaksiyalar bildirish va sharhlar qoldirish imkoniyati.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof / Stats Section -->
+  <section id="stats" class="py-16 bg-gradient-to-b from-darkcard/80 to-darkbg border-y border-darkborder">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-500">&lt; 0.8s</div>
+          <div class="text-slate-400 text-xs sm:text-sm font-medium mt-1">O'rtacha yuklanish tezligi</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">50,000+</div>
+          <div class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Oylik faol o'quvchilar</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">35+</div>
+          <div class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Rasmiy Tarjimon Jamoalar</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-emerald-400">18M+ UZS</div>
+          <div class="text-slate-400 text-xs sm:text-sm font-medium mt-1">Tarjimonlarga to'langan donatlar</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manga Showcase -->
+  <section id="mangas" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-start md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-brand-500 text-xs font-bold tracking-widest uppercase">Katalog</span>
+          <h2 class="text-3xl font-extrabold text-white mt-1">Mashhur Mangalar</h2>
+        </div>
+        <button onclick="openDemoModal()" class="text-brand-500 hover:text-brand-400 font-semibold text-sm flex items-center gap-2">
+          Barchasini ko'rish <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+        <!-- Manga Card 1 -->
+        <div onclick="openDemoModal()" class="bg-darkcard rounded-xl overflow-hidden border border-darkborder hover:border-brand-500/50 transition-all cursor-pointer group">
+          <div class="relative overflow-hidden aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">Bob 142</span>
+          </div>
+          <div class="p-3">
+            <h4 class="text-white font-bold text-sm truncate">Demon Slayer</h4>
+            <p class="text-slate-400 text-xs mt-0.5">Jamoa: UzbekScan</p>
+          </div>
+        </div>
+
+        <!-- Manga Card 2 -->
+        <div onclick="openDemoModal()" class="bg-darkcard rounded-xl overflow-hidden border border-darkborder hover:border-brand-500/50 transition-all cursor-pointer group">
+          <div class="relative overflow-hidden aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">Bob 88</span>
+          </div>
+          <div class="p-3">
+            <h4 class="text-white font-bold text-sm truncate">Cyberpunk Edgerunner</h4>
+            <p class="text-slate-400 text-xs mt-0.5">Jamoa: AniUz</p>
+          </div>
+        </div>
+
+        <!-- Manga Card 3 -->
+        <div onclick="openDemoModal()" class="bg-darkcard rounded-xl overflow-hidden border border-darkborder hover:border-brand-500/50 transition-all cursor-pointer group">
+          <div class="relative overflow-hidden aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">Bob 210</span>
+          </div>
+          <div class="p-3">
+            <h4 class="text-white font-bold text-sm truncate">Jujutsu Kaisen</h4>
+            <p class="text-slate-400 text-xs mt-0.5">Jamoa: MangaPro</p>
+          </div>
+        </div>
+
+        <!-- Manga Card 4 -->
+        <div onclick="openDemoModal()" class="bg-darkcard rounded-xl overflow-hidden border border-darkborder hover:border-brand-500/50 transition-all cursor-pointer group">
+          <div class="relative overflow-hidden aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">Bob 45</span>
+          </div>
+          <div class="p-3">
+            <h4 class="text-white font-bold text-sm truncate">Chainsaw Man</h4>
+            <p class="text-slate-400 text-xs mt-0.5">Jamoa: MangaShift Team</p>
+          </div>
+        </div>
+
+        <!-- Manga Card 5 -->
+        <div onclick="openDemoModal()" class="bg-darkcard rounded-xl overflow-hidden border border-darkborder hover:border-brand-500/50 transition-all cursor-pointer group">
+          <div class="relative overflow-hidden aspect-[3/4]">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <span class="absolute top-2 left-2 bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">Bob 12</span>
+          </div>
+          <div class="p-3">
+            <h4 class="text-white font-bold text-sm truncate">Tokyo Revengers</h4>
+            <p class="text-slate-400 text-xs mt-0.5">Jamoa: MangaLab</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-r from-brand-700 to-rose-600 rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-2xl">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Manga olamiga tayyormisiz?</h2>
+        <p class="text-rose-100 max-w-xl mx-auto text-sm sm:text-base mb-8">
+          Hoziroq ro'yxatdan o'ting, reklamalarsiz va qulaylik bilan mangalarni o'zbek tilida mutolaa qiling!
+        </p>
+        <button onclick="openDemoModal()" class="bg-white text-brand-700 hover:bg-slate-100 font-extrabold px-8 py-4 rounded-xl shadow-lg transition-all hover:scale-105">
+          Platformani sinab ko'rish
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-darkborder bg-darkcard/40 py-10 text-slate-500 text-sm text-center">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>© 2026 MangaShift. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+  <!-- Reader Modal Demo -->
+  <div id="demoModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-darkcard border border-darkborder max-w-2xl w-full rounded-2xl overflow-hidden shadow-2xl">
+      <div class="p-4 border-b border-darkborder flex items-center justify-between">
+        <h3 class="text-white font-bold flex items-center gap-2">
+          <i class="fa-solid fa-book-open text-brand-500"></i> Solo Leveling — Bob 1 (Demo)
+        </h3>
+        <button onclick="closeDemoModal()" class="text-slate-400 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
+      <div class="p-6 text-center space-y-4">
+        <div class="bg-black/50 p-4 rounded-xl border border-darkborder flex items-center justify-center min-h-[300px]">
+          <div class="space-y-3">
+            <i class="fa-solid fa-circle-check text-emerald-400 text-4xl"></i>
+            <h4 class="text-white font-bold">Reader Demo Rejimi</h4>
+            <p class="text-slate-400 text-xs max-w-md">
+              Haqiqiy loyihada bu yerda manga sahifalari o'ta tezkorlik bilan ketma-ket yuklanadi va reklamalar umuman ko'rsatilmaydi.
+            </p>
+          </div>
+        </div>
+        <button onclick="closeDemoModal()" class="bg-brand-600 hover:bg-brand-500 text-white font-bold px-6 py-2.5 rounded-xl text-sm transition-colors">
+          Yopish
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openDemoModal() {
+      document.getElementById('demoModal').classList.remove('hidden');
+    }
+    function closeDemoModal() {
+      document.getElementById('demoModal').classList.add('hidden');
+    }
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
